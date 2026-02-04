@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en"
+>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Sukoon Calligraphy — A beautiful portfolio website showcasing original sketches, paintings, and custom calligraphy by Me. Made with HTML, Tailwind CSS, and JavaScript. (@calligraphy.by.hifza.5)" />
+  <title>Sukoon Calligraphy</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { accent: '#ff6b6b', soft: '#fff7f7' },
+          borderRadius: { 'xl2': '18px' }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+  <style> html { scroll-behavior: smooth; } </style>
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- PRELOADER -->
+  <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+    <div class="flex flex-col items-center gap-3">
+      <div class="w-16 h-16 rounded-full border-4 border-accent border-t-transparent animate-spin"></div>
+      <span class="text-sm text-gray-500">Loading...</span>
+    </div>
+  </div>
+
+  <!-- HEADER / NAV -->
+  <header class="sticky top-0 z-40 bg-white/60 backdrop-blur-sm border-b">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+
+      <!-- Circle logo -->
+      <div class="w-10 h-10 rounded-full overflow-hidden">
+        <img src="images/logo.png" alt="Logo" class="w-full h-full object-cover">
+      </div>
+
+
+      <!-- desktop nav -->
+      <nav id="nav" class="hidden md:flex gap-6 items-center text-sm">
+        <a href="#home" class="hover:text-accent">Home</a>
+        <a href="#gallery" class="hover:text-accent">Gallery</a>
+        <a href="#services" class="hover:text-accent">Services</a>
+        <a href="#about" class="hover:text-accent">About</a>
+        <a href="#contact" class="hover:text-accent">Contact</a>
+      </nav>
+
+      <!-- mobile controls -->
+      <div class="flex items-center gap-3">
+        <button id="scrollTopBtn" aria-label="Back to top" class="hidden md:inline-block p-2 rounded-md text-sm border">Top</button>
+        <button id="nav-toggle" class="md:hidden p-2 rounded-md text-xl" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+
+    <!-- mobile nav panel -->
+    <div id="mobileNav" class="hidden md:hidden border-t">
+      <div class="px-4 pb-4 space-y-2">
+        <a href="#home" class="block py-2">Home</a>
+        <a href="#gallery" class="block py-2">Gallery</a>
+        <a href="#services" class="block py-2">Services</a>
+        <a href="#about" class="block py-2">About</a>
+        <a href="#contact" class="block py-2">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO (carousel) -->
+  <section id="home" class="pt-8 pb-12">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+      <!-- text -->
+      <div>
+        <h1 class="text-3xl md:text-4xl font-extrabold mb-3">Sukoon Calligraphy — Artist & Calligrapher</h1>
+        <p class="text-gray-600 mb-4">Original paintings, sketches, and custom calligraphy commissions. Welcome to my portfolio — I create art that tells a story.</p>
+        <div class="flex gap-3">
+          <a href="#gallery" class="inline-block px-5 py-2 rounded-xl bg-accent text-white font-medium">View Gallery</a>
+          <a href="#contact" class="inline-block px-5 py-2 rounded-xl border">Hire Me</a>
+        </div>
+        <div class="mt-6 text-sm text-gray-500">Available on Fiverr • Commission work welcome</div>
+      </div>
+
+      <!-- carousel (simple) -->
+      <div class="relative">
+        <div id="heroSlides" class="overflow-hidden rounded-xl border shadow-sm">
+          <!-- slides: replace with your images -->
+          <img class="w-full h-72 object-cover slide" src="images/hero1.jfif" alt="hero1" />
+          <img class="w-full h-72 object-cover slide hidden" src="images/hero2.jfif" alt="hero2" />
+          <img class="w-full h-72 object-cover slide hidden" src="images/hero3.jfif" alt="hero3" />
+        </div>
+        <!-- nav -->
+        <div class="absolute left-3 top-1/2 transform -translate-y-1/2">
+          <button id="heroPrev" class="bg-white p-2 rounded-full shadow">◀</button>
+        </div>
+        <div class="absolute right-3 top-1/2 transform -translate-y-1/2">
+          <button id="heroNext" class="bg-white p-2 rounded-full shadow">▶</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="py-10 bg-soft">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-2">Gallery</h2>
+      <p class="text-gray-600 mb-6">Click any image to view it larger.</p>
+
+      <div id="galleryGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+        <!-- 15 images with name and price -->
+        <figure class="relative group rounded-xl overflow-hidden cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <img src="images\img1.jpg" alt="Human Sketch " class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+          <figcaption class="p-3 bg-white">
+            <h3 class="font-semibold text-gray-800">Human Sketch</h3>
+            <p class="text-accent font-semibold mt-1">PKR 4,500</p>
+          </figcaption>
+        </figure>
+        <figure class="relative group rounded-xl overflow-hidden cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <img src="images/img2.jpg" alt="Bird Sketch" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+          <figcaption class="p-3 bg-white">
+            <h3 class="font-semibold text-gray-800">Bird Sketch</h3>
+            <p class="text-accent font-semibold mt-1">PKR 3,800</p>
+          </figcaption>
+        </figure>
+        <figure class="relative group rounded-xl overflow-hidden cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <img src="images/img3.jpg" alt="Flower Sketch " class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+          <figcaption class="p-3 bg-white">
+            <h3 class="font-semibold text-gray-800">Flower Sketch</h3>
+            <p class="text-accent font-semibold mt-1">PKR 5,200</p>
+          </figcaption>
+        </figure>
+        <figure class="relative group rounded-xl overflow-hidden cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <img src="images/img4.jpg" alt="Masjid Sketch " class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+          <figcaption class="p-3 bg-white">
+            <h3 class="font-semibold text-gray-800">Masjid Sketch</h3>
+            <p class="text-accent font-semibold mt-1">PKR 4,000</p>
+          </figcaption>
+        </figure>
+        <figure class="relative group rounded-xl overflow-hidden cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <img src="images/img5.jpg" alt="Beauty catch by camera " class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+          <figcaption class="p-3 bg-white">
+            <h3 class="font-semibold text-gray-800">Beauty catch by camera</h3>
+            <p class="text-accent font-semibold mt-1">PKR 4,800</p>
+          </figcaption>
+        </figure>
+        <figure class="relative group rounded-xl overflow-hidden cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <img src="images/img6.jpg" alt="Islamic Sketch " class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+          <figcaption class="p-3 bg-white">
+            <h3 class="font-semibold text-gray-800">Islamic Sketch</h3>
+            <p class="text-accent font-semibold mt-1">PKR 3,600</p>
+          </figcaption>
+        </figure>
+        <figure class="relative group rounded-xl overflow-hidden cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <img src="images/img7.jpg" alt="Sirat ul mustaqeem Calligraphy" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+          <figcaption class="p-3 bg-white">
+            <h3 class="font-semibold text-gray-800">Sirat ul mustaqeem Calligraphy</h3>
+            <p class="text-accent font-semibold mt-1">PKR 5,000</p>
+          </figcaption>
+        </figure>
+        <figure class="relative group rounded-xl overflow-hidden cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <img src="images/img8.jpg" alt="Bismillah Calligraphy" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+          <figcaption class="p-3 bg-white">
+            <h3 class="font-semibold text-gray-800">Bismillah Calligraphy</h3>
+            <p class="text-accent font-semibold mt-1">PKR 4,200</p>
+          </figcaption>
+        </figure>
+        <figure class="relative group rounded-xl overflow-hidden cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <img src="images/img9.jpg" alt="Allah Ho Akbar Calligraphy " class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+          <figcaption class="p-3 bg-white">
+            <h3 class="font-semibold text-gray-800">Allah Ho Akbar Calligraphy</h3>
+            <p class="text-accent font-semibold mt-1">PKR 4,900</p>
+          </figcaption>
+        </figure>
+        <figure class="relative group rounded-xl overflow-hidden cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <img src="images/img10.jpg" alt="Sufiyana Calligraphy " class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+          <figcaption class="p-3 bg-white">
+            <h3 class="font-semibold text-gray-800">Sufiyana Calligraphy </h3>
+            <p class="text-accent font-semibold mt-1">PKR 5,100</p>
+          </figcaption>
+        </figure>
+        <figure class="relative group rounded-xl overflow-hidden cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <img src="images/img11.jpg" alt="Peaceful Ayat " class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+          <figcaption class="p-3 bg-white">
+            <h3 class="font-semibold text-gray-800">Peaceful Ayat</h3>
+            <p class="text-accent font-semibold mt-1">PKR 3,900</p>
+          </figcaption>
+        </figure>
+        <figure class="relative group rounded-xl overflow-hidden cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <img src="images/img12.jpg" alt="Loh e Quran" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+          <figcaption class="p-3 bg-white">
+            <h3 class="font-semibold text-gray-800">Loh e Quran</h3>
+            <p class="text-accent font-semibold mt-1">PKR 4,300</p>
+          </figcaption>
+        </figure>
+        <figure class="relative group rounded-xl overflow-hidden cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <img src="images/img13.jpg" alt="Four corners of Faith" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+          <figcaption class="p-3 bg-white">
+            <h3 class="font-semibold text-gray-800">Four corners of Faith</h3>
+            <p class="text-accent font-semibold mt-1">PKR 4,700</p>
+          </figcaption>
+        </figure>
+        <figure class="relative group rounded-xl overflow-hidden cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <img src="images/img14.jpg" alt="Golden flow" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+          <figcaption class="p-3 bg-white">
+            <h3 class="font-semibold text-gray-800">Golden flow</h3>
+            <p class="text-accent font-semibold mt-1">PKR 4,600</p>
+          </figcaption>
+        </figure>
+        <figure class="relative group rounded-xl overflow-hidden cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <img src="images/img15.jpg" alt="Ocean of words" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+          <figcaption class="p-3 bg-white">
+            <h3 class="font-semibold text-gray-800">Ocean of words</h3>
+            <p class="text-accent font-semibold mt-1">PKR 5,300</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-10">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-4">Services</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-5 rounded-xl border shadow-sm">
+          <h3 class="font-semibold mb-2">Sketching Commissions</h3>
+          <p class="text-gray-600 mb-3">Handmade sketches — portraits, characters, references.</p>
+          <button class="px-4 py-2 rounded-md border" onclick="location.href='#contact'">Contact Me</button>
+        </div>
+
+        <div class="p-5 rounded-xl border shadow-sm">
+          <h3 class="font-semibold mb-2">Calligraphy</h3>
+          <p class="text-gray-600 mb-3">Custom lettering for invitations, logos and prints.</p>
+          <button class="px-4 py-2 rounded-md border" onclick="location.href='#contact'">Contact Me</button>
+        </div>
+
+        <div class="p-5 rounded-xl border shadow-sm">
+          <h3 class="font-semibold mb-2">Fiverr & Projects</h3>
+          <p class="text-gray-600 mb-3">Fiverr services and university project help available.</p>
+          <button class="px-4 py-2 rounded-md border" onclick="location.href='#contact'">Contact Me</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-12 bg-soft">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-3xl font-bold mb-4 text-accent">About Sukoon Calligraphy</h2>
+        <p class="text-gray-700 mb-4 leading-relaxed">
+          Sukoon Calligraphy is a sanctuary where art meets passion. Founded by Girliee, an artist and calligrapher with years of experience, we specialize in bringing your visions to life through elegant sketches, unique paintings, and exquisite calligraphy.
+        </p>
+        <p class="text-gray-700 mb-4 leading-relaxed">
+          Whether you’re looking for a personalized commission, decorative prints, or custom lettering for special occasions, Sukoon Calligraphy offers a variety of services tailored to your needs. Our mission is to create timeless pieces that resonate emotionally and visually.
+        </p>
+        <ul class="list-disc ml-5 text-gray-700 space-y-1">
+          <li>Expertise in watercolor, ink, and digital art</li>
+          <li>Custom calligraphy for weddings, logos, and branding</li>
+          <li>Affordable pricing with attention to quality</li>
+        </ul>
+      </div>
+      <div>
+        <img src="images/about-art.jpg" alt="Artist at work" class="rounded-xl shadow-lg" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-10">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-2">Contact</h2>
+      <p class="text-gray-600 mb-4">Email me for commissions, prints, or collaborations.</p>
+
+      <form id="contactForm" class="grid gap-3" novalidate>
+        <input id="cfName" class="border p-3 rounded-md" type="text" placeholder="Your name" required />
+        <input id="cfEmail" class="border p-3 rounded-md" type="email" placeholder="Your email" required />
+        <textarea id="cfMessage" class="border p-3 rounded-md" rows="5" placeholder="Message" required></textarea>
+        <div class="flex items-center gap-3">
+          <button type="submit" class="px-5 py-2 rounded-xl bg-accent text-white">Send Message</button>
+          <p id="formMsg" class="text-sm text-gray-600"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t py-6 mt-12">
+    <div class="max-w-6xl mx-auto px-4 text-center text-gray-600 text-sm select-none">
+      &copy; 2025 Sukoon Calligraphy All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
+</body>
+</html>

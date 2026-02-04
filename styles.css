@@ -1,0 +1,41 @@
+/* styles.css - small helpers not in Tailwind */
+.slide { transition: opacity .4s, transform .4s; }
+.slide.hidden { opacity: 0; transform: scale(.99); }
+#mobileNav a { border-bottom: 1px solid rgba(0,0,0,0.04); }
+#preloader { transition: opacity .3s ease; }
+#preloader.hidden { opacity: 0; pointer-events: none; }
+
+
+/* Smooth shadow transition for gallery items */
+figure {
+  transition: box-shadow 0.3s ease;
+}
+
+figure:hover {
+  box-shadow: 0 10px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* Accent color text, matching Tailwind's extended color */
+.text-accent {
+  color: #ff6b6b;
+}
+
+/* Optional: style for the preloader */
+#preloader {
+  background: white;
+  z-index: 9999;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Button hover styles */
+button:hover {
+  background-color: #ff6b6b;
+  color: white;
+  border-color: #ff6b6b;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
